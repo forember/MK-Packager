@@ -9,9 +9,11 @@ Vagrant.configure("2") do |config|
   config.vm.define "linux" do |linux|
     linux.vm.box = "bento/ubuntu-18.04"
     linux.vm.provision "chef_solo" do |lchef|
+      lchef.arguments = "--chef-license accept"
       lchef.add_recipe "upgrade"
       lchef.add_recipe "xubuntu"
     end
+    linux.vm.provision "shell", inline: "poweroff"
   end
   config.vm.define "windows", autostart: false do |windows|
     windows.vm.box = "gusztavvargadr/windows-10"
