@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Resolution
+Exec=/vagrant/desktop/resolution.bash
+Icon=video-display
+Type=Application

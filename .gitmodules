@@ -1,0 +1,6 @@
+[submodule "cookbooks/sc_vscode"]
+	path = cookbooks/sc_vscode
+	url = https://github.com/sous-chefs/vscode.git
+[submodule "cookbooks/docker"]
+	path = cookbooks/docker
+	url = https://github.com/chef-cookbooks/docker.git

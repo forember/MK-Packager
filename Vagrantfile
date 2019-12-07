@@ -12,6 +12,8 @@ Vagrant.configure("2") do |config|
       lchef.arguments = "--chef-license accept"
       lchef.add_recipe "upgrade"
       lchef.add_recipe "xubuntu"
+      lchef.add_recipe "vdocker"
+      lchef.add_recipe "vscode"
     end
     linux.vm.provision "shell", inline: "poweroff"
   end
