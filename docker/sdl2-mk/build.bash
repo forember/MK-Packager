@@ -1,19 +1,20 @@
 #!/bin/bash
 set -ex
+/packager/clearbinaries.bash
 function build {
     cd "/packager/build/$1"
     ( [ -f Makefile ] && make clean ) || true
     if [ "$NOPACKAGE" = 0 ]; then
         prefix=/usr
-        libprefix="$prefix/lib/x86_64-linux-gnu"
+        libdir="$prefix/lib/x86_64-linux-gnu"
     elif [ "$1" = automake ]; then
         prefix=/packager/binaries/automake
-        libprefix="$prefix/lib"
+        libdir="$prefix/lib"
     else
         prefix=/packager/binaries/sdl2-mk
-        libprefix="$prefix/lib"
+        libdir="$prefix/lib"
     fi
-    "/packager/sources/$1/configure" --prefix "$prefix" --libprefix "$libprefix"
+    "/packager/sources/$1/configure" --prefix "$prefix" --libdir "$libdir"
     make -j4
     make install
 }

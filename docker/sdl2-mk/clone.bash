@@ -6,7 +6,7 @@ cd sources
 wget -q https://ftp.gnu.org/gnu/automake/automake-1.16.tar.xz
 tar xf automake-1.16.tar.xz
 mv automake-1.16 automake
-echo 'Cloning mercurial repos takes a while.'
+printf 'Cloning mercurial repos takes a while\n'
 hg clone https://hg.libsdl.org/SDL SDL
 /packager/video.bash
 hg clone https://hg.libsdl.org/SDL_image SDL_image
@@ -16,5 +16,4 @@ cd SDL_sound
 ./bootstrap
 cd ../../build
 mkdir automake SDL SDL_image SDL_ttf SDL_sound
-cd ../binaries
-mkdir automake sdl2-mk
+/packager/clearbinaries.bash

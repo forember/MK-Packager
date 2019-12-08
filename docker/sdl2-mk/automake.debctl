@@ -1,0 +1,26 @@
+Package: automake-1.16
+Version: 1:1.16
+Architecture: all
+Maintainer: Chris McKinney <chris@mckinney.click>
+Depends: autoconf (>= 2.69), autotools-dev (>= 20180224.1)
+Recommends: automake-1.15
+Suggests: autoconf-doc, gnu-standards
+Section: devel
+Priority: optional
+Multi-Arch: foreign
+Homepage: https://www.gnu.org/software/automake/
+Description: Tool for generating GNU Standards-compliant Makefiles
+ Automake is a tool for automatically generating `Makefile.in's from
+ files called `Makefile.am'.
+ .
+ The goal of Automake is to remove the burden of Makefile maintenance
+ from the back of the individual GNU maintainer (and put it on the back
+ of the Automake maintainer).
+ .
+ The `Makefile.am' is basically a series of `make' macro definitions
+ (with rules being thrown in occasionally).  The generated
+ `Makefile.in's are compliant with the GNU Makefile standards.
+ .
+ This package provides Automake 1.16 for Ubuntu Bionic, but it has not
+ been put through the testing of an official Ubuntu package.  Also
+ install 1.15 and use it for anything that does not require 1.16.

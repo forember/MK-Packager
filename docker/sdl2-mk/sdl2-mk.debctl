@@ -1,0 +1,20 @@
+Package: sdl2-mk
+Version: 2.0.10-1mkTIMESTAMP
+Architecture: amd64
+Maintainer: Chris McKinney <chris@mckinney.click>
+Depends: libasound2 (>= 1.1.3), libc6 (>= 2.27), libpulse0 (>= 1:11.1), libsndio6.1 (>= 1.1.0), libwayland-client0 (>= 1.14.0), libwayland-cursor0 (>= 1.14.0), libwayland-egl1-mesa (>= 17.3.3) | libwayland-egl1 (>= 1.15.0), libx11-6 (>= 2:1.6.4), libxcursor1 (>= 1:1.1.15), libxext6 (>= 2:1.3.3), libxi6 (>= 2:1.7.9), libxinerama1 (>= 2:1.1.3), libxkbcommon0 (>= 0.8.0), libxrandr2 (>= 2:1.5.1), libxss1 (>= 1:1.2.2), libxxf86vm1 (>= 1:1.1.4), libjpeg8 (>= 8c), libpng16-16 (>= 1.6.34), libtiff5 (>= 4.0.9), libwebp6 (>= 0.6.1), libfreetype6 (>= 2.8.1), libflac8 (>= 1.3.2), libflac8 (>= 1.3.2), libmikmod3 (>= 3.3.11), libogg0 (>= 1.3.2), libsdl1.2debian (>= 1.2.15), libspeex1 (>= 1.2~rc1.2-1ubuntu2), libvorbisfile3 (>= 1.3.5)
+Recommends: zlib1g, libaudio2, libgl1, libdbus-1-3, libudev1, libgles2-mesa, libegl1-mesa, libibus-1.0-5, fcitx-libs, libsamplerate0, wayland-protocols
+Provides: libsdl2-2.0-0, libsdl2-image-2.0-0, libsdl2-ttf-2.0-0, libsdl-sound1.2
+Conflicts: libsdl2-2.0-0, libsdl2-image-2.0-0, libsdl2-ttf-2.0-0, libsdl-sound1.2, libsdl-1.3-0
+Replaces: libsdl2-2.0-0, libsdl2-image-2.0-0, libsdl2-ttf-2.0-0, libsdl-sound1.2, libsdl-1.3-0
+Section: libs
+Priority: optional
+Homepage: https://www.libsdl.org/
+Description: Simple DirectMedia Layer
+ SDL is a library that allows programs portable low level access to a video
+ framebuffer, audio output, mouse, and keyboard.
+ .
+ This package provides and replaces libsdl2-2.0-0, libsdl2-image-2.0-0,
+ libsdl2-ttf-2.0-0, and libsdl-sound1.2, with modifications for running
+ mkxp. This package is for testing and development only. DO NOT install
+ it on a system running production software.
