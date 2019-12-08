@@ -27,23 +27,25 @@ Windows VM can currently be created, but it doesn't do anything yet).
 VirtualBox will open, and the provisioner scripts will run. This may take a
 while. Once the provisioning finishes, the VM will shut down. Run
 `vagrant up [linux/windows]` again, and you will end up just on the Desktop.
-There should be two icons: ReadMe and Code. Open ReadMe, and follow the
+There should be several icons, including ReadMe. Open ReadMe, and follow the
 instructions there.
 
 Once you are done with the VM, you can shut it down normally from within the
 VM. If you need to boot it again, you can `cd` into MK-Packager and run
-`vagrant up [linux/windows]` again. If you wish to delete the VM, shut it down
-and run `vagrant destroy [linux/windows]`.
+`vagrant up [linux/windows]` again. If you wish to re-run the provisioner
+scripts, run `vagrant up --provision [linux/windows]`. The VM will
+automatically shut down when the re-provisioning finishes. If you wish to
+delete the VM entirely, shut it down and run `vagrant destroy [linux/windows]`.
 
-## Current Installer Targets
+## Deployment Installer Targets
 
--   Ubuntu 18.04 ([deb][])
--   Fedora 31 ([rpm][])
+-   Windows 10 ([WiX msi][]) *Not yet implemented*
+-   AppImage ([.NET Core SCD][]) *Not yet implemented*
 
-## Planned Installer Targets
+## Development/Testing Installer Targets
 
--   Windows 10 ([WiX msi][])
--   AppImage ([.NET Core SCD][])
+-   Ubuntu 18.04 ([deb][]) *Work in progress*
+-   Fedora 31 ([rpm][]) *Not yet implemented*
 
 [Vagrant]: https://www.vagrantup.com/
 [Docker]: https://github.com/docker/docker-ce
