@@ -1,0 +1,8 @@
+/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0
+/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.11.0
+/usr/lib/x86_64-linux-gnu/libSDL2_image-2.0.so.0
+/usr/lib/x86_64-linux-gnu/libSDL2_image-2.0.so.0.6.0
+/usr/lib/x86_64-linux-gnu/libSDL2_ttf-2.0.so.0
+/usr/lib/x86_64-linux-gnu/libSDL2_ttf-2.0.so.0.14.1
+/usr/lib/x86_64-linux-gnu/libSDL_sound-1.0.so.1
+/usr/lib/x86_64-linux-gnu/libSDL_sound-1.0.so.1.0.0

@@ -5,6 +5,7 @@ Vagrant.configure("2") do |config|
     vbox.linked_clone = true
     vbox.cpus = 2
     vbox.memory = 4096
+    vbox.customize ["modifyvm", :id, "--vram", "256"]
   end
   config.vm.define "linux" do |linux|
     linux.vm.box = "bento/ubuntu-18.04"

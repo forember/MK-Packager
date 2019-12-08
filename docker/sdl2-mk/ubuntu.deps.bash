@@ -1,0 +1,13 @@
+#!/bin/bash
+set -ex
+/packager/ubuntu.upgrade.bash
+apt-get -y install git mercurial build-essential autoconf automake make \
+    wget libtool
+apt-get -y install libfreetype6-dev libjpeg-dev libpng-dev libtiff-dev \
+    libvorbis-dev libwebp-dev zlib1g-dev
+apt-get -y install libasound2-dev libpulse-dev libaudio-dev libx11-dev \
+    libxext-dev libxrandr-dev libxcursor-dev libxi-dev libxinerama-dev \
+    libxxf86vm-dev libxss-dev libgl1-mesa-dev libdbus-1-dev libudev-dev \
+    libgles2-mesa-dev libegl1-mesa-dev libibus-1.0-dev fcitx-libs-dev \
+    libsamplerate0-dev libsndio-dev libwayland-dev libxkbcommon-dev \
+    wayland-protocols
