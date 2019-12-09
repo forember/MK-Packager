@@ -1,0 +1,24 @@
+Package: libmikmod-git-config
+Version: 3.3.11.2-1gitTIMESTAMP
+Architecture: amd64
+Maintainer: Chris McKinney <chris@mckinney.click>
+Provides: libmikmod-config
+Breaks: libmikmod-dev (<< 3.3.11.2), libmikmod2-dev (<< 3.3.11.2)
+Conflicts: libmikmod-config
+Replaces: libmikmod-config, libmikmod-dev, libmikmod2-dev
+Section: libdevel
+Priority: optional
+Multi-Arch: foreign
+Homepage: http://mikmod.sf.net/
+Description: Portable sound library - development binaries
+ This library is capable of playing samples as well as module files
+ and was originally written by Jean-Paul Mikkers (MikMak) for DOS. It
+ has subsequently been hacked by many hands and now runs on many Unix
+ flavours.
+ .
+ It supports OSS, ALSA, SDL and PulseAudio outputs, and can also write
+ to disk in raw, WAV and AIFF formats.
+ .
+ Supported file formats include mod, stm, s3m, mtm, xm, and it.
+ .
+ This package contains libmikmod-config.

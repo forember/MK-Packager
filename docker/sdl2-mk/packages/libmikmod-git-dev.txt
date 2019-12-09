@@ -1,0 +1,7 @@
+include/mikmod.h
+lib/x86_64-linux-gnu/libmikmod.a
+lib/x86_64-linux-gnu/libmikmod.la
+lib/x86_64-linux-gnu/libmikmod.so
+lib/x86_64-linux-gnu/pkgconfig/libmikmod.pc
+share/aclocal/libmikmod.m4
+share/info/mikmod.info

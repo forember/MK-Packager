@@ -1,0 +1,2 @@
+lib/x86_64-linux-gnu/libmikmod.so.3
+lib/x86_64-linux-gnu/libmikmod.so.3.3.0

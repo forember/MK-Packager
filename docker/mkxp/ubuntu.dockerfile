@@ -12,5 +12,5 @@ COPY ubuntu.mkdeps.bash pull.bash build.bash ubuntu.package.bash \
     ubuntu.main.bash /packager/
 RUN chmod +x /packager/*.bash
 COPY mkxp.txt mkxp.debctl /packager/
-ENV NOPACKAGE 1
+ENV NOPACKAGE 0
 CMD /packager/ubuntu.main.bash

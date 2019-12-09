@@ -18,7 +18,8 @@ script "build packager images" do
       docker build -t "mk-packager-$1-ubuntu" -f "$1/ubuntu.dockerfile" "$1"
     }
     image sdl2-mk
-    image physfs 
+    image physfs
+    image mkxp
     EOH
 end
 docker_container "mk-packager-sdl2-mk-ubuntu" do
@@ -26,6 +27,10 @@ docker_container "mk-packager-sdl2-mk-ubuntu" do
   action :create
 end
 docker_container "mk-packager-physfs-ubuntu" do
+  volumes ["/vagrant/output:/packager/output"]
+  action :create
+end
+docker_container "mk-packager-mkxp-ubuntu" do
   volumes ["/vagrant/output:/packager/output"]
   action :create
 end

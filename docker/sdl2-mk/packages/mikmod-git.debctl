@@ -1,0 +1,18 @@
+Package: mikmod-git
+Version: 3.3.11.2-1gitTIMESTAMP
+Architecture: amd64
+Maintainer: Chris McKinney <chris@mckinney.click>
+Depends: libmikmod-git (= 3.3.11.2-1gitTIMESTAMP), libc6 (>= 2.27), libncurses5 (>= 6), libtinfo5 (>= 6)
+Recommends: oss-compat
+Suggests: bzip2, jlha-utils, unrar, unzip
+Provides: mikmod
+Conflicts: mikmod
+Replaces: mikmod
+Section: sound
+Priority: optional
+Homepage: http://mikmod.sf.net
+Description: Portable tracked music player
+ Mikmod is a very portable tracked music player which supports a wide
+ variety of module formats including compressed sample Impulse Tracker
+ modules. It also supports many archive formats, as well as on the fly
+ decompression.

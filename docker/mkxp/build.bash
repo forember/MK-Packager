@@ -5,7 +5,7 @@ function build {
     cd "/packager/build/$1"
     ( [ -f Makefile ] && make clean ) || true
     if [ "$NOPACKAGE" = 0 ]; then
-        export INSTALL_ROOT=/
+        export INSTALL_ROOT="/packager/build/$1"
     else
         export INSTALL_ROOT="/packager/binaries/$1"
     fi
@@ -14,6 +14,6 @@ function build {
     qmake "$1.pro" BINDING=MRI MRIVERSION=2.5 \
         CONFIG+=INI_ENCODING CONFIG+=SHARED_FLUID DEFINES+=WORKDIR_CURRENT
     make -j4
-    make install
+    #make install
 }
 build mkxp

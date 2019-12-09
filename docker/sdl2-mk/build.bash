@@ -10,6 +10,9 @@ function build {
     elif [ "$1" = automake ]; then
         prefix=/packager/binaries/automake
         libdir="$prefix/lib"
+    elif [ "$1" = mikmod/libmikmod ] || [ "$1" = mikmod/mikmod ]; then
+        prefix=/packager/binaries/mikmod-git
+        libdir="$prefix/lib"
     else
         prefix=/packager/binaries/sdl2-mk
         libdir="$prefix/lib"
@@ -20,6 +23,10 @@ function build {
 }
 build automake
 [ "$NOPACKAGE" = 0 ] || export PATH="/packager/binaries/automake/bin:$PATH"
+build mikmod/libmikmod
+[ "$NOPACKAGE" = 0 ] || export PATH="/packager/binaries/mikmod-git/bin:$PATH"
+[ "$NOPACKAGE" = 0 ] || export LD_LIBRARY_PATH='/packager/binaries/mikmod-git/lib'
+build mikmod/mikmod
 build SDL
 build SDL_image
 build SDL_ttf

@@ -14,5 +14,9 @@ function makedeb {
     dpkg-deb -b "$1" /packager/output
 }
 makedeb automake
+makedeb libmikmod-git
+makedeb libmikmod-git-config
+makedeb libmikmod-git-dev
+makedeb mikmod-git
 makedeb sdl2-mk
 makedeb sdl2-mk-dev
