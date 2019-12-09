@@ -1,7 +1,7 @@
 #!/bin/bash
 set -ex
 cd /packager
-./ubuntu.upgrade.bash
+./ubuntu.mkdeps.bash
 ./pull.bash
 ./build.bash
 if [ "$NOPACKAGE" = 0 ]; then
