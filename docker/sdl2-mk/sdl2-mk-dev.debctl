@@ -6,7 +6,7 @@ Depends: sdl2-mk (= 2.0.10-1mkTIMESTAMP), libsdl1.2-dev (>= 1.2.15), libasound2-
 Provides: libsdl2-dev, libsdl2-image-dev, libsdl2-ttf-dev, libsdl-sound1.2-dev
 Conflicts: libsdl2-dev, libsdl2-image-dev, libsdl2-ttf-dev, libsdl-sound1.2-dev, libsdl-1.3-dev
 Replaces: libsdl2-dev, libsdl2-image-dev, libsdl2-ttf-dev, libsdl-sound1.2-dev, libsdl-1.3-dev
-Section: libs
+Section: libdevel
 Priority: optional
 Homepage: https://www.libsdl.org/
 Description: Simple DirectMedia Layer development files

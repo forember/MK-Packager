@@ -1,0 +1,7 @@
+bin/test_physfs
+include/physfs.h
+lib/x86_64-linux-gnu/cmake/PhysFS/PhysFSConfig-noconfig.cmake
+lib/x86_64-linux-gnu/cmake/PhysFS/PhysFSConfig.cmake
+lib/x86_64-linux-gnu/libphysfs.a
+lib/x86_64-linux-gnu/libphysfs.so
+lib/x86_64-linux-gnu/pkgconfig/physfs.pc

@@ -1,0 +1,15 @@
+Package: physfs
+Version: 3.0.2-1hgTIMESTAMP
+Architecture: amd64
+Maintainer: Chris McKinney <chris@mckinney.click>
+Depends: libc6 (>= 2.27)
+Provides: libphysfs-1.0-0, libphysfs1
+Conflicts: libphysfs-1.0-0, libphysfs1
+Replaces: libphysfs-1.0-0, libphysfs1
+Section: libs
+Priority: optional
+Homepage: https://www.icculus.org/physfs/
+Description: filesystem abstraction library for game programmers
+ The PhysicsFS filesystem abstraction library provides a simple C
+ interface to aid game programmers in utilizing game assets packaged in
+ many different types of archive files.
