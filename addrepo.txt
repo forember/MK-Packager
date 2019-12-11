@@ -1,0 +1,4 @@
+$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0xC926F70CE8ED4037
+$ sudo sh -c 'echo "deb https://mk.mckinney.click/ubuntu/ ./" >/etc/apt/sources.list.d/mk-mckinney.list'
+$ sudo apt update
+$ sudo apt install mkxp
