@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=MKXP
 Exec=/usr/bin/mkxp-launch
-Icon=mkxp.png
+Icon=mkxp
 Type=Application
+Categories=Game;RolePlaying;

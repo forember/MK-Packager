@@ -15,11 +15,12 @@ script "build packager images" do
   code <<-EOH
     set -ex
     function image {
-      docker build -t "mk-packager-$1-ubuntu" -f "$1/ubuntu.dockerfile" "$1"
+      docker build -t "mk-packager-$1-$2" -f "$1/$2.dockerfile" "$1"
     }
-    image sdl2-mk
-    image physfs
-    image mkxp
+    image sdl2-mk ubuntu
+    image physfs ubuntu
+    image mkxp ubuntu
+    image mkxp appimage
     EOH
 end
 docker_container "mk-packager-sdl2-mk-ubuntu" do
@@ -31,6 +32,10 @@ docker_container "mk-packager-physfs-ubuntu" do
   action :create
 end
 docker_container "mk-packager-mkxp-ubuntu" do
+  volumes ["/vagrant/output:/packager/output"]
+  action :create
+end
+docker_container "mk-packager-mkxp-appimage" do
   volumes ["/vagrant/output:/packager/output"]
   action :create
 end

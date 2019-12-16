@@ -1,0 +1,22 @@
+#!/bin/bash
+[ "$*" != '-c -i-' ] && exec /usr/bin/wget "$@"
+coproc wget {
+    /usr/bin/wget -q -c -i-
+}
+while IFS= read -r url; do
+    case "$url" in
+        http*)
+            printf 'Download: %s\n' "$url"
+            printf '%s\n' "$url" >&"${wget[1]}"
+            ;;
+        file*)
+            printf 'Copy: %s\n' "${url#file:}"
+            cp "${url#file:}" ./
+            ;;
+        *)
+            printf 'REJECT: %s\n' "$url"
+            ;;
+    esac </dev/null
+done
+exec {wget[1]}>&-
+cat <&"${wget[0]}"
