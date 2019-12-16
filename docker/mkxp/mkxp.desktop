@@ -1,5 +1,5 @@
 [Desktop Entry]
 Name=MKXP
-Exec=/usr/bin/mkxp-launcher
+Exec=/usr/bin/mkxp-launch
 Icon=mkxp.png
 Type=Application

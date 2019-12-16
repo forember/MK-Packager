@@ -2,7 +2,7 @@ Package: mkxp
 Version: 20191206-1gitTIMESTAMP
 Architecture: amd64
 Maintainer: Chris McKinney <chris@mckinney.click>
-Depends: physfs (>= 3.0.2), sdl2-mk (>= 2.0.10), libmikmod-git (>= 3.3.11.2), ruby2.5 (>= 2.5.1), libsigc++-2.0-0v5 (>= 2.10.0), libopenal1 (>= 1:1.18.2), libvorbis-dev (>= 1.3.5), libpixman-1-0 (>= 0.34.0), zlib1g (>= 1.2.11), libgl1-mesa-dev (>= 17.3.3), libguess1 (>= 1.2), libfluidsynth1 (>= 1.1.9), libboost1.65-dev (>= 1.65.1), libboost-program-options1.65-dev (>= 1.65.1)
+Depends: physfs (>= 3.0.2), sdl2-mk (>= 2.0.10), libmikmod-git (>= 3.3.11.2), zenity (>= 3.28.1), mlocate (>= 0.26), ruby2.5 (>= 2.5.1), libsigc++-2.0-0v5 (>= 2.10.0), libopenal1 (>= 1:1.18.2), libvorbis-dev (>= 1.3.5), libpixman-1-0 (>= 0.34.0), zlib1g (>= 1.2.11), libgl1-mesa-dev (>= 17.3.3), libguess1 (>= 1.2), libfluidsynth1 (>= 1.1.9), libboost1.65-dev (>= 1.65.1), libboost-program-options1.65-dev (>= 1.65.1)
 Section: games
 Priority: optional
 Homepage: https://github.com/NighttimeDriver50000/mkxp

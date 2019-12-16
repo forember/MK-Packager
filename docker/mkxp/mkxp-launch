@@ -1,0 +1,34 @@
+#!/bin/bash
+[ -f project.mkproj ] && exec mkxp "$@"
+function mkxpdb {
+    inodes="$(df -i | grep '/$' | awk '{print $3}')"
+    count=0
+    updatedb -vl 0 -o "$HOME/.mkxp.db" | while read; do
+        if [ "$(((++count) % 100))" -eq 0 ]; then
+            percent="$((100 * count / inodes))"
+            [ "$percent" -ge 100 ] && percent=99
+            printf '%s%%\n' "$percent"
+        fi
+    done
+    printf '100%%\n'
+}
+function mkxpdb_progress {
+    mkxpdb | zenity --progress --auto-close --title 'MKXP Indexing' \
+        --text 'Finding MKXP games'
+}
+if ! [ -f "$HOME/.mkxp.db" ]; then
+    mkxpdb_progress
+fi
+projdir=Reload
+while [ "$projdir" = Reload ]; do
+    allproj="$(locate -0d "$HOME/.mkxp.db" project.mkproj | xargs -0L 1 dirname -z \
+        | sort -z | uniq -z | paste -zsd '|' | tr '\0' '\n')"
+    projdir="$(zenity --forms --title 'MKXP Selection' \
+        --text 'Select a MKXP game' --extra-button 'Reload' \
+        --add-combo 'Game: ' --combo-values "$allproj" \
+        | sed -E 's/^\s*(.*)\s*$/\1/g')"
+    [ "$projdir" ] || exit
+    [ "$projdir" = Reload ] && mkxpdb_progress
+done
+cd "$projdir"
+mkxp "$@"

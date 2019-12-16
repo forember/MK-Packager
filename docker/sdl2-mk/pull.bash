@@ -6,11 +6,14 @@ git pull
 cd ../SDL
 hg revert --no-backup src/video/SDL_video.c
 hg pull
+hg update
 /packager/video.bash
 cd ../SDL_image
 hg pull
+hg update
 cd ../SDL_ttf
 hg pull
+hg update
 cd ../SDL_sound
 git reset --hard HEAD
 git pull

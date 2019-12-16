@@ -8,7 +8,7 @@ allres="$(xrandr | egrep '^\s*[0-9]+x[0-9]+\s' \
 newres="$(zenity --forms --title 'Resolution' \
     --text 'Select a display resolution' \
     --add-combo 'Resolution: ' --combo-values "$allres" \
-    | sed 's/\s//g')"
+    | sed -E 's/\s//g')"
 [ "$newres" ] || exit
 printf 'Changing mode of (%s) to (%s)\n' "$output" "$newres"
 xrandr --output "$output" --mode "$newres"

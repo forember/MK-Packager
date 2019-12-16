@@ -1,6 +1,6 @@
 #!/bin/bash
 cd "$(dirname "$0")"
-dpkg-scanpackages . | gzip -9c >Packages.gz
+dpkg-scanpackages -m . | gzip -9c >Packages.gz
 cp ReleaseBase ReleaseTemp
 printf 'Date: %s\n' "$(date -R -u)" >>ReleaseTemp
 printf 'SHA256:\n' >>ReleaseTemp
