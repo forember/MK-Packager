@@ -18,34 +18,40 @@ username):
 git clone https://github.com/NighttimeDriver50000/MK-Packager.git
 git submodule update --recursive --init
 cd MK-Packager
-vagrant up linux
+vagrant up ubuntu
 ```
 
-You can also run `vagrant up windows` to create the Windows VM (*Note:* the
-Windows VM can currently be created, but it doesn't do anything yet).
+You can also run `vagrant up fedora` to create the Fedora VM, or
+`vagrant up windows` to create the Windows VM (*Note:* the Windows VM can
+currently be created, but it doesn't do anything yet).
 
 VirtualBox will open, and the provisioner scripts will run. This may take a
 while. Once the provisioning finishes, the VM will shut down. Run
-`vagrant up [linux/windows]` again, and you will end up just on the Desktop.
-There should be several icons, including ReadMe. Open ReadMe, and follow the
-instructions there.
+`vagrant up [ubuntu/fedora/windows]` again, and you will end up just on the
+Desktop. There should be several icons, including ReadMe (*TODO*). Open ReadMe,
+and follow the instructions there.
 
 Once you are done with the VM, you can shut it down normally from within the
 VM. If you need to boot it again, you can `cd` into MK-Packager and run
-`vagrant up [linux/windows]` again. If you wish to re-run the provisioner
-scripts, run `vagrant up --provision [linux/windows]`. The VM will
-automatically shut down when the re-provisioning finishes. If you wish to
-delete the VM entirely, shut it down and run `vagrant destroy [linux/windows]`.
+`vagrant up [ubuntu/fedora/windows]` again. If you wish to re-run the
+provisioner scripts, run `vagrant up --provision [ubuntu/fedora/windows]`. The
+VM will automatically shut down when the re-provisioning finishes. If you wish
+to delete the VM entirely, shut it down and run
+`vagrant destroy [ubuntu/fedora/windows]`.
 
-## Deployment Installer Targets
+## Targets
 
--   Windows 10 ([WiX msi][]) *Not yet implemented*
--   AppImage ([.NET Core SCD][]) *Not yet implemented*
+|        Target         |    Technology     |     MKXP      |   MK-Editor   |
+| :-------------------- | :---------------- | :-----------: | :-----------: |
+| **Self-Contained**    |                   |               |               |
+| Portable EXE          | [.NET Core SCD][] | &cross;       | &cross;       |
+| AppImage              | [pkg2appimage][]  | &check;&sext; | &cross;       |
+| **Installers**        |                   |               |               |
+| Windows 10 Installer  | [WiX msi][]       | &cross;       | &cross;       |
+| Ubuntu 18.04 Package  | [deb][]           | &check;&sext; | &cross;       |
+| Fedora 31 Package     | [rpm][]           | &cross;       | &cross;       |
 
-## Development/Testing Installer Targets
-
--   Ubuntu 18.04 ([deb][]) *Work in progress*
--   Fedora 31 ([rpm][]) *Not yet implemented*
+&sext;: Does not yet include all MK-Starter-Kit extension libraries.
 
 [Vagrant]: https://www.vagrantup.com/
 [Docker]: https://github.com/docker/docker-ce
@@ -57,7 +63,8 @@ delete the VM entirely, shut it down and run `vagrant destroy [linux/windows]`.
 [install Vagrant]: https://www.vagrantup.com/intro/getting-started/install.html
 [latest VirtualBox]: https://www.virtualbox.org/wiki/Downloads
 [git]: https://git-scm.com/downloads
+[.NET Core SCD]: https://github.com/AppImage/AppImageKit/wiki/Bundling-.NET-Core-apps
+[pkg2appimage]: https://github.com/AppImage/pkg2appimage
+[WiX msi]: https://wixtoolset.org/documentation/manual/v3/main/
 [deb]: http://packaging.ubuntu.com/html/packaging-new-software.html
 [rpm]: https://docs.fedoraproject.org/en-US/packaging-guidelines/
-[WiX msi]: https://wixtoolset.org/documentation/manual/v3/main/
-[.NET Core SCD]: https://github.com/AppImage/AppImageKit/wiki/Bundling-.NET-Core-apps
