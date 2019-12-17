@@ -44,7 +44,7 @@ to delete the VM entirely, shut it down and run
 |        Target         |    Technology     |     MKXP      |   MK-Editor   |
 | :-------------------- | :---------------- | :-----------: | :-----------: |
 | **Self-Contained**    |                   |               |               |
-| Portable EXE          | [.NET Core SCD][] | &cross;       | &cross;       |
+| Portable EXE          | [.NET Core SFP][] | &cross;       | &cross;       |
 | AppImage              | [pkg2appimage][]  | &check;&sext; | &cross;       |
 | **Installers**        |                   |               |               |
 | Windows 10 Installer  | [WiX msi][]       | &cross;       | &cross;       |
@@ -63,7 +63,7 @@ to delete the VM entirely, shut it down and run
 [install Vagrant]: https://www.vagrantup.com/intro/getting-started/install.html
 [latest VirtualBox]: https://www.virtualbox.org/wiki/Downloads
 [git]: https://git-scm.com/downloads
-[.NET Core SCD]: https://github.com/AppImage/AppImageKit/wiki/Bundling-.NET-Core-apps
+[.NET Core SFP]: https://github.com/dotnet/designs/blob/master/accepted/single-file/design.md
 [pkg2appimage]: https://github.com/AppImage/pkg2appimage
 [WiX msi]: https://wixtoolset.org/documentation/manual/v3/main/
 [deb]: http://packaging.ubuntu.com/html/packaging-new-software.html
