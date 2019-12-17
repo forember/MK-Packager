@@ -24,7 +24,7 @@ Name-Comment: temporary key for appimage build
 Name-Email: mkxp@example.com
 %commit
 GPG
-gpg -a --export 'mkxp@example.com' | apt-key add
+gpg -a --export 'mkxp@example.com' | tee PublicKey | apt-key add
 gpg -a -s --clearsign ReleaseTemp
 mv ReleaseTemp.asc InRelease
 rm ReleaseTemp

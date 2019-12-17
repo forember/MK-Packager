@@ -1,27 +1,41 @@
 #!/bin/bash
-[ -f project.mkproj ] && exec mkxp "$@"
-function mkxpdb {
+function mkxp_here {
+    pwd; [ -f project.mkproj ] && exec mkxp "$@"
+}
+printf 'Searching for immediate project.mkproj.\n'
+swd="$(pwd)"
+[ "$1" ] && cd "$(dirname "$1")" && mkxp_here
+[ "$APPIMAGE" ] && cd "$(dirname "$APPIMAGE")" && mkxp_here
+[ "$OWD" ] && cd "$OWD" && mkxp_here
+cd "$swd" && mkxp_here
+cd "$(dirname "$0")" && mkxp_here
+printf 'No immediate project found; opening launcher.\n'
+cd "$HOME" || exit
+function mkxpdb {(
+    set -e
     inodes="$(df -i | grep '/$' | awk '{print $3}')"
     count=0
-    updatedb -vl 0 -o "$HOME/.mkxp.db" | while read; do
+    updatedb -vl 0 -o .mkxp.db | while read; do
         if [ "$(((++count) % 100))" -eq 0 ]; then
             percent="$((100 * count / inodes))"
-            [ "$percent" -ge 100 ] && percent=99
+            if [ "$percent" -ge 100 ]; then
+                percent=99
+            fi
             printf '%s%%\n' "$percent"
         fi
     done
     printf '100%%\n'
-}
+)}
 function mkxpdb_progress {
     mkxpdb | zenity --progress --auto-close --title 'MKXP Indexing' \
         --text 'Finding MKXP games'
 }
-if ! [ -f "$HOME/.mkxp.db" ]; then
+if ! [ -f .mkxp.db ]; then
     mkxpdb_progress
 fi
 projdir=Reload
 while [ "$projdir" = Reload ]; do
-    allproj="$(locate -0d "$HOME/.mkxp.db" project.mkproj | xargs -0L 1 dirname -z \
+    allproj="$(locate -0d .mkxp.db project.mkproj | xargs -0L 1 dirname -z \
         | sort -z | uniq -z | paste -zsd '|' | tr '\0' '\n')"
     projdir="$(zenity --forms --title 'MKXP Selection' \
         --text 'Select a MKXP game' --extra-button 'Reload' \
@@ -30,5 +44,5 @@ while [ "$projdir" = Reload ]; do
     [ "$projdir" ] || exit
     [ "$projdir" = Reload ] && mkxpdb_progress
 done
-cd "$projdir"
-mkxp "$@"
+cd "$projdir" || exit
+mkxp_here || exit

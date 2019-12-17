@@ -1,6 +1,11 @@
 [Desktop Entry]
 Name=MKXP
-Exec=/usr/bin/mkxp-launch
-Icon=mkxp
+GenericName=RGSS Player
+Comment=Run games made with MK-Editor
+Icon=mkxp.png
 Type=Application
+TryExec=mkxp-launch
+Exec=mkxp-launch %f
+Terminal=true
+MimeType=application/x-mk-project
 Categories=Game;RolePlaying;

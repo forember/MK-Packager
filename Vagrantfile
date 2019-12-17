@@ -9,18 +9,38 @@ Vagrant.configure("2") do |config|
         "--acpi", "on", "--ioapic", "on", "--hwvirtex", "on",
         "--clipboard", "bidirectional"]
   end
-  config.vm.define "linux" do |linux|
-    linux.vm.box = "bento/ubuntu-18.04"
-    linux.vm.provision "chef_solo" do |lchef|
-      lchef.arguments = "--chef-license accept"
-      lchef.add_recipe "upgrade"
-      lchef.add_recipe "xubuntu"
-      lchef.add_recipe "vdocker"
-      lchef.add_recipe "vscode"
+  def linux_chef_base(chef)
+    chef.arguments = "--chef-license accept"
+    chef.add_recipe "upgrade"
+    chef.add_recipe "xfce-desktop"
+    chef.add_recipe "vdocker"
+    chef.add_recipe "vscode"
+  end
+  config.vm.define "ubuntu" do |ubuntu|
+    ubuntu.vm.box = "bento/ubuntu-18.04"
+    ubuntu.vm.provider "virtualbox" do |vbox|
+      vbox.customize ["modifyvm", :id, "--ostype", "Ubuntu_64"]
     end
-    linux.vm.provision "shell", inline: "poweroff"
+    ubuntu.vm.provision "chef_solo" do |chef|
+      linux_chef_base chef
+      chef.add_recipe "ubuntu-extra"
+    end
+    ubuntu.vm.provision "shell", inline: "poweroff"
+  end
+  config.vm.define "fedora", autostart: false do |fedora|
+    fedora.vm.box = "bento/fedora-31"
+    fedora.vm.provider "virtualbox" do |vbox|
+      vbox.customize ["modifyvm", :id, "--ostype", "Fedora_64"]
+    end
+    fedora.vm.provision "chef_solo" do |chef|
+      linux_chef_base chef
+    end
+    fedora.vm.provision "shell", inline: "poweroff"
   end
   config.vm.define "windows", autostart: false do |windows|
     windows.vm.box = "gusztavvargadr/windows-10"
+    windows.vm.provider "virtualbox" do |vbox|
+      vbox.customize ["modifyvm", :id, "--ostype", "Windows10_64"]
+    end
   end
 end

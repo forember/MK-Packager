@@ -14,5 +14,7 @@ ingredients:
     - libegl-mesa0
 
 scripts:
+  - mkdir -p lib/x86_64-linux-gnu
+  - cp /lib/x86_64-linux-gnu/libnsl[-.]* lib/x86_64-linux-gnu/
   - cp usr/share/applications/mkxp.desktop ./
   - cp usr/share/icons/hicolor/128x128/apps/mkxp.png ./
