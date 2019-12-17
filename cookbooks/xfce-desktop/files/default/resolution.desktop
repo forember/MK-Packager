@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Resolution
+GenericName=Display Setting
+Comment=Change the display resolution
+Icon=video-display
+Type=Application
+TryExec=resolution
+Exec=resolution
+Categories=Utility;Settings;DesktopSettings;HardwareSettings;

@@ -11,9 +11,9 @@ end
 script "upgrade packages" do
   interpreter "bash"
   case node[:platform_family]
-  when "debian", "ubuntu"
+  when "debian", "ubuntu" then
     code "yes | DEBIAN_FRONTEND=noninteractive apt-get -y full-upgrade"
-  when "fedora", "rhel"
+  when "fedora", "rhel" then
     code "yes | dnf -y upgrade"
   else
     code "true"

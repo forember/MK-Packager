@@ -11,6 +11,6 @@ RUN /packager/clone.bash
 COPY ubuntu.mkdeps.bash pull.bash build.bash ubuntu.package.bash \
     ubuntu.main.bash /packager/
 RUN chmod +x /packager/*.bash
-COPY mkxp.debctl mkxp-launch mkxp.png mkxp.desktop /packager/
+COPY mkxp.debctl mkxp-launch mkxp.png mkxp.xml mkxp.desktop /packager/
 ENV NOPACKAGE 0
 CMD /packager/ubuntu.main.bash

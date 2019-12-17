@@ -23,19 +23,14 @@ script "build packager images" do
     image mkxp appimage
     EOH
 end
-docker_container "mk-packager-sdl2-mk-ubuntu" do
-  volumes ["/vagrant/output:/packager/output"]
-  action :create
-end
-docker_container "mk-packager-physfs-ubuntu" do
-  volumes ["/vagrant/output:/packager/output"]
-  action :create
-end
-docker_container "mk-packager-mkxp-ubuntu" do
-  volumes ["/vagrant/output:/packager/output"]
-  action :create
-end
-docker_container "mk-packager-mkxp-appimage" do
-  volumes ["/vagrant/output:/packager/output"]
-  action :create
+[
+  "sdl2-mk-ubuntu",
+  "physfs-ubuntu",
+  "mkxp-ubuntu",
+  "mkxp-appimage"
+].each do |name|
+  docker_container "mk-packager-#{name}" do
+    volumes ["/vagrant/output:/packager/output"]
+    action :create
+  end
 end

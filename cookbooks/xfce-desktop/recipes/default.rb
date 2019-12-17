@@ -1,44 +1,37 @@
 # vim: set ft=ruby ts=2 sts=2 sw=2 et :
-log "unsupported distro" do
-  message "Unrecognized distro; falling back to best guess."
-  level :warn
-  action :nothing
+def install_package(ubuntu_name, fedora_name, fallback_name)
+  case node[:platform]
+  when "ubuntu" then
+    selected_name = ubuntu_name
+  when "fedora" then
+    selected_name = fedora_name
+  else
+    selected_name = fallback_name
+    log "Unsupported distro; falling back to best guess." do
+      level :warn
+    end
+  end
+  log "Platform is #{node[:platform]}. Installing #{selected_name}."
+  package selected_name
 end
 log "Installing Xfce takes a long time."
-package "install xfce" do
-  case node[:platform_family]
-  when "debian", "ubuntu"
-    package_name "xubuntu-desktop"
-  when "fedora", "rhel"
-    package_name "@xfce-desktop-environment"
-  else
-    package_name "xfce4"
-    notifies :write, "unsupported distro"
+install_package "xubuntu-desktop", "@xfce-desktop-environment", "xfce4"
+install_package "virtualbox-guest-x11", "virtualbox-guest-additions", "virtualbox-guest-utils"
+def install_file(f_path, f_owner, f_mode)
+  directory File.dirname(f_path) do
+    recursive true
+    owner f_owner
+    group f_owner
+    mode "0755"
+  end
+  cookbook_file f_path do
+    source File.basename(f_path)
+    owner f_owner
+    group f_owner
+    mode f_mode
   end
 end
-package "install vbox additions"
-  case node[:platform_family]
-  when "debian", "ubuntu"
-    package_name "virtualbox-guest-x11"
-  when "fedora", "rhel"
-    package_name "virtualbox-guest-additions"
-  else
-    package_name "virtualbox-guest-utils"
-    notifies :write, "unsupported distro"
-  end
-end
-cookbook_file "/etc/lightdm/lightdm.conf" do
-  source "lightdm.conf"
-  owner "root"
-  group "root"
-  mode "0644"
-end
-script "desktop icons" do
-  interpreter "bash"
-  user "vagrant"
-  group "vagrant"
-  cwd "/home/vagrant/Desktop"
-  code <<-EOH
-    cp /vagrant/desktop/resolution.desktop resolution.desktop
-    EOH
-end
+install_file "/etc/lightdm/lightdm.conf", "root", "0644"
+install_file "/usr/local/bin/resolution", "root", "0755"
+install_file "/usr/local/share/applications/resolution.desktop", "root", "0644"
+install_file "/home/vagrant/Desktop/resolution.desktop", "vagrant", "0755"

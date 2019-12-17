@@ -12,7 +12,6 @@ cp /packager/mkxp.png usr/share/icons/hicolor/128x128/apps/
 cp /packager/mkxp.png usr/share/icons/hicolor/128x128/mimetypes/application-x-mk-project.png
 cp /packager/mkxp.desktop usr/share/applications/
 cp /packager/mkxp.xml usr/share/mime/packages/
-cp /packager/
 mkdir DEBIAN
 sed "s/TIMESTAMP/$timestamp/g" </packager/mkxp.debctl >DEBIAN/control
 cd ..

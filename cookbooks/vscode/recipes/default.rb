@@ -2,21 +2,22 @@
 sc_vscode_installer "install vscode" do
   action :install
 end
-sc_vscode_extension "ms-vscode.csharp" do
-  user "vagrant"
-  action :install
+[
+  "ms-vscode.csharp",
+  "rebornix.ruby",
+  "chef-software.chef",
+  "ms-azuretools.vscode-docker"
+].each do |name|
+  sc_vscode_extension name do
+    user "vagrant"
+    action :install
+  end
 end
-sc_vscode_extension "rebornix.Ruby" do
-  user "vagrant"
-  action :install
-end
-sc_vscode_extension "chef-software.Chef" do
-  user "vagrant"
-  action :install
-end
-sc_vscode_extension "ms-azuretools.vscode-docker" do
-  user "vagrant"
-  action :install
+directory "/home/vagrant/.config/Code/User" do
+  recursive true
+  owner "vagrant"
+  group "vagrant"
+  mode "0755"
 end
 cookbook_file "/home/vagrant/.config/Code/User/settings.json" do
   source "settings.json"
