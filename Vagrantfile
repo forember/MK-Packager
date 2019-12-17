@@ -32,6 +32,8 @@ Vagrant.configure("2") do |config|
     fedora.vm.provider "virtualbox" do |vbox|
       vbox.customize ["modifyvm", :id, "--ostype", "Fedora_64"]
     end
+    fedora.vm.provision "shell", path: "scripts/DisableCgroupsV2.bash"
+    fedora.vm.provision "shell", inline: "true"
     fedora.vm.provision "chef_solo" do |chef|
       linux_chef_base chef
     end

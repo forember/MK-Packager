@@ -3,16 +3,24 @@ def install_package(ubuntu_name, fedora_name, fallback_name)
   case node[:platform]
   when "ubuntu" then
     selected_name = ubuntu_name
+    log "Installing #{selected_name} for Ubuntu."
+    package selected_name
   when "fedora" then
     selected_name = fedora_name
+    log "Installing #{selected_name} for Ubuntu."
+    script "install #{selected_name}" do
+      interpreter "bash"
+      environment "DNF_SPEC" => selected_name
+      code "yes | dnf -y install \"$DNF_SPEC\""
+    end
   else
     selected_name = fallback_name
     log "Unsupported distro; falling back to best guess." do
       level :warn
     end
+    log "Platform name is #{node[:platform]}. Installing #{selected_name}."
+    package selected_name
   end
-  log "Platform is #{node[:platform]}. Installing #{selected_name}."
-  package selected_name
 end
 log "Installing Xfce takes a long time."
 install_package "xubuntu-desktop", "@xfce-desktop-environment", "xfce4"
