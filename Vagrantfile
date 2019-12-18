@@ -32,11 +32,14 @@ Vagrant.configure("2") do |config|
     fedora.vm.provider "virtualbox" do |vbox|
       vbox.customize ["modifyvm", :id, "--ostype", "Fedora_64"]
     end
-    fedora.vm.provision "shell", path: "scripts/DisableCgroupsV2.bash"
+    fedora.vm.provision "shell",
+        path: "scripts/FedoraInitialSetup.bash", args: "6.1.0"
     fedora.vm.provision "shell", inline: "true"
     fedora.vm.provision "chef_solo" do |chef|
       linux_chef_base chef
     end
+    fedora.vm.provision "shell",
+        path: "scripts/FedoraApplyFixes.bash", args: "6.1.0"
     fedora.vm.provision "shell", inline: "poweroff"
   end
   config.vm.define "windows", autostart: false do |windows|

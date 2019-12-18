@@ -9,7 +9,8 @@ mv automake-1.16 automake
 git clone https://git.code.sf.net/p/mikmod/mikmod mikmod
 printf 'Cloning SDL repos takes a while\n'
 hg clone https://hg.libsdl.org/SDL SDL
-/packager/video.bash
+git clone https://github.com/x42/weakjack.git weakjack
+/packager/modsdl.bash
 hg clone https://hg.libsdl.org/SDL_image SDL_image
 hg clone https://hg.libsdl.org/SDL_ttf SDL_ttf
 git clone https://github.com/Ancurio/SDL_sound.git SDL_sound

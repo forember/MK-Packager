@@ -1,9 +1,17 @@
 #!/bin/bash
 [ -f /cgroupsv2_disabled ] && exit 0
-set -e
-yes | dnf -y install grubby
+set -ex
+yes | dnf -y upgrade
+yes | dnf -y install kernel-devel kernel-headers gcc make perl \
+    grubby cloud-utils-growpart e2fsprogs
+"/opt/VBoxGuestAdditions-$1/init/vboxadd" stop
+"/opt/VBoxGuestAdditions-$1/init/vboxadd" setup
+/sbin/rcvboxadd quicksetup all
 grubby --update-kernel=ALL --args="systemd.unified_cgroup_hierarchy=0"
 touch /cgroupsv2_disabled
+set +ex
+growpart /dev/sda 2
+resize2fs /dev/sda2
 cat <<'MSG'
 
 

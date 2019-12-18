@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 RUN mkdir -p /packager/output
 VOLUME /packager/output
-COPY ubuntu.upgrade.bash ubuntu.scm.bash video.bash bootstrap.bash \
+COPY ubuntu.upgrade.bash ubuntu.scm.bash modsdl.bash bootstrap.bash \
     clearbinaries.bash clone.bash /packager/
 RUN chmod +x /packager/*.bash
 RUN /packager/ubuntu.scm.bash
