@@ -1,10 +1,16 @@
 #!/bin/bash
 set -ex
-cd /packager/sources/SDL_sound
+cd /packager/sources/SDL
+./autogen.sh
+cd ../SDL_image
+./autogen.sh
+cd ../SDL_ttf
+./autogen.sh
+cd ../SDL_sound
 ./bootstrap
-cp bootstrap ../mikmod/libmikmod/
 cp bootstrap ../mikmod/mikmod/
-cd ../mikmod/libmikmod
+cp bootstrap ../mikmod/libmikmod/
+cd ../mikmod/mikmod
 ./bootstrap
-cd ../mikmod
+cd ../libmikmod
 ./bootstrap
