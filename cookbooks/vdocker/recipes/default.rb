@@ -17,6 +17,7 @@ script "build packager images" do
     function image {
       docker build -t "mk-packager-$1-$2" -f "$1/$2.dockerfile" "$1"
     }
+    image jack2 ubuntu
     image sdl2-mk ubuntu
     image physfs ubuntu
     image mkxp ubuntu
@@ -24,6 +25,7 @@ script "build packager images" do
     EOH
 end
 [
+  "jack2-ubuntu",
   "sdl2-mk-ubuntu",
   "physfs-ubuntu",
   "mkxp-ubuntu",

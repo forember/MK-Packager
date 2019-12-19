@@ -8,5 +8,5 @@ RUN /packager/appimage.clone.bash
 COPY appimage.pull.bash appimage.repo.bash appimage.main.bash /packager/
 COPY wget /usr/local/bin/
 RUN chmod +x /packager/*.bash /usr/local/bin/wget
-COPY mkxp.yml /packager/
+COPY AppRun mkxp.yml /packager/
 CMD /packager/appimage.main.bash

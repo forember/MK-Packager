@@ -1,0 +1,14 @@
+Package: jackd2-optional
+Version: 1.9.14-1gitTIMESTAMP
+Architecture: amd64
+Maintainer: Chris McKinney <chris@mckinney.click>
+Depends: libjack2-optional (= 1.9.14-1gitTIMESTAMP), python3, python3-dbus, debconf-2.0, coreutils (>= 8.28), libasound2 (>= 1.1.3), libc6 (>= 2.27), libdbus-1-3 (>= 1.12.2), libexpat1 (>= 2.2.5), libgcc1 (>= 1:8.3), libreadline7 (>= 7.0), libsamplerate0 (>= 0.1.9), libsndfile1 (>= 1.0.28), libstdc++6 (>= 8.3), libffado2 (>= 2.3)
+Conflicts: jackd2, jack-daemon, jackd
+Section: sound
+Priority: optional
+Homepage: http://jackaudio.org/
+Description: JACK Audio Connection Kit (server and example clients)
+ JACK is a low-latency sound server, allowing multiple applications to
+ connect to one audio device, and to share audio between themselves.
+ .
+ This package contains the daemon jackd as well as some example clients.

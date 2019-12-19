@@ -7,5 +7,5 @@ sed -Ei \
 cp ../weakjack/weak_libjack.c src/
 cp ../weakjack/weak_libjack.{def,h} include/
 sed -Ei \
-    's/^#include [<"]jack\/jack.h[">]\s*$/#include "weak_libjack.h"/' \
+    's/^#include [<"]jack\/jack.h[">]\s*$/#include <jack\/weakjack.h>/' \
     src/audio/jack/SDL_jackaudio.h

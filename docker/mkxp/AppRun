@@ -1,0 +1,6 @@
+#!/bin/bash
+set -e
+for suffix in / /i386-linux-gnu/ /x86_64-linux-gnu/ 32/ 64/; do
+    export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$APPDIR/usr/optional/lib$suffix"
+done
+"$APPDIR/AppRunUnion" "$@"

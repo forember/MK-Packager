@@ -3,6 +3,9 @@ app: mkxp
 
 ingredients:
   dist: bionic
+  packages:
+    - mkxp
+    - jackd2-optional
   sources:
     - deb file:/packager/output/ ./
     - deb http://archive.ubuntu.com/ubuntu/ bionic main restricted universe multiverse
@@ -13,9 +16,11 @@ ingredients:
     - libgl1-mesa-dev
     - libegl-mesa0
 
-scripts:
+script:
   - cp usr/share/applications/mkxp.desktop ./
   - cp usr/share/icons/hicolor/128x128/apps/mkxp.png ./
   - mkdir -p lib/x86_64-linux-gnu usr/lib/x86_64-linux-gnu
   - cp /lib/x86_64-linux-gnu/libnsl[-.]* lib/x86_64-linux-gnu/
-  - cp /usr/lib/x86_64-linux-gnu/libjack{,net,server}.so.* usr/lib/x86_64-linux-gnu/
+  - mv AppRun AppRunUnion
+  - cp /packager/AppRun ./
+  - chmod +x AppRun

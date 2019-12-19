@@ -1,0 +1,15 @@
+Package: libjack2-optional-dev
+Version: 1.9.14-1gitTIMESTAMP
+Architecture: amd64
+Maintainer: Chris McKinney <chris@mckinney.click>
+Depends: libjack2-optional (= 1.9.14-1gitTIMESTAMP), pkg-config
+Conflicts: libjack-jackd2-dev, libjack-dev, libjack0.100.0-dev
+Section: libdevel
+Priority: optional
+Homepage: http://jackaudio.org/
+Description: JACK Audio Connection Kit (development files)
+ JACK is a low-latency sound server, allowing multiple applications to
+ connect to one audio device, and to share audio between themselves.
+ .
+ This package contains files needed for the development of JACK applications
+ and an API reference.
