@@ -22,8 +22,10 @@ vagrant up ubuntu
 ```
 
 You can also run `vagrant up fedora` to create the Fedora VM, or
-`vagrant up windows` to create the Windows VM (*Note:* the Windows VM can
-currently be created, but it doesn't do anything yet).
+`vagrant up windows` to create the Windows VM (*Note:* the Fedora VM is
+*experimental*, and probably always will be. You can build everything on it,
+but it is not as thoroughly tested. The Windows VM is for testing Windows
+targets only; it has no build scripts).
 
 VirtualBox will open, and the provisioner scripts will run. This may take a
 while. Once the provisioning finishes, the VM will shut down. Run
@@ -45,13 +47,11 @@ to delete the VM entirely, shut it down and run
 | :-------------------- | :---------------- | :-----------: | :-----------: |
 | **Self-Contained**    |                   |               |               |
 | Portable EXE          | [.NET Core SFP][] | &cross;       | &cross;       |
-| AppImage              | [pkg2appimage][]  | &check;&sext; | &cross;       |
+| AppImage              | [pkg2appimage][]  | &check;       | &cross;       |
 | **Installers**        |                   |               |               |
 | Windows 10 Installer  | [WiX msi][]       | &cross;       | &cross;       |
-| Ubuntu 18.04 Package  | [deb][]           | &check;&sext; | &cross;       |
+| Ubuntu 18.04 Package  | [deb][]           | &check;       | &cross;       |
 | Fedora 31 Package     | [rpm][]           | &cross;       | &cross;       |
-
-&sext;: Does not yet include all MK-Starter-Kit extension libraries.
 
 [Vagrant]: https://www.vagrantup.com/
 [Docker]: https://github.com/docker/docker-ce
