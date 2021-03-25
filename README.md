@@ -16,8 +16,8 @@ username):
 
 ```sh
 git clone https://github.com/NighttimeDriver50000/MK-Packager.git
-git submodule update --recursive --init
 cd MK-Packager
+git submodule update --recursive --init
 vagrant up ubuntu
 ```
 
